@@ -1,7 +1,9 @@
 @ECHO OFF
 
 :: Hacer versión Mac Steam en UYW-ES-MAC.zip
-cd "Main/uyw_Data"
+cd "Main"
+COPY "config.dat" "uyw_Data"
+cd "uyw_Data"
 RD "LocalizationES" /q /s
 RD "Managed" /q /s
 DEL "sharedassets0.assets"
@@ -14,6 +16,7 @@ DEL "sharedassets6.assets"
 DEL "sharedassets7.assets"
 "%ProgramFiles%\WinRAR\WinRAR.exe" a -afzip -ibck -r -y "../../../../../Zips/UYW-ES-MAC.zip" "."
 :: Hacer versión Steam en UYW-ES.zip
+DEL "config.dat"
 cd ..
 cd ..
 xcopy "ArchivosWindows" "Main" /s /y
